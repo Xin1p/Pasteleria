@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Pedido - Dulce Gustito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1 class="titulo-principal">Dulce Gustito</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cartilla.html">Cartilla</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="mas-pedido.html">Lo que más hago</a></li>
+                    <li><a href="agendar.html">Agendar</a></li>
+                    <li><a href="carrito.html" class="btn-carrito">🛒 Carrito <span id="carrito-contador"></span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion form-section">
+            <div class="container">
+                <h2 class="titulo-seccion">Agenda tu Pedido</h2>
+                <form class="formulario-pedido" id="formulario-agendar">
+                    <div class="form-group">
+                        <label for="producto">Producto</label>
+                        <select id="producto" class="form-group input" required>
+                            <option value="">Selecciona un producto</option>
+                            <option value="Pastel de Chocolate|25000|🎂">Pastel de Chocolate - $25.000</option>
+                            <option value="Pastel de Fresa|28000|🍓">Pastel de Fresa - $28.000</option>
+                            <option value="Cheesecake|30000|🍰">Cheesecake - $30.000</option>
+                            <option value="Pastel de Tres Leches|32000|👑">Pastel de Tres Leches - $32.000</option>
+                            <option value="Torta Red Velvet|35000|⭐">Torta Red Velvet - $35.000</option>
+                            <option value="Pastel de Vainilla|28000|💗">Pastel de Vainilla - $28.000</option>
+                            <option value="Galletas Artesanales|15000|🍪">Galletas Artesanales - $15.000</option>
+                            <option value="Cupcakes|12000|🧁">Cupcakes - $12.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha de entrega</label>
+                        <input type="date" id="fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hora">Hora de entrega</label>
+                        <input type="time" id="hora" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección de entrega</label>
+                        <input type="text" id="direccion" placeholder="Ingresa tu dirección completa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" placeholder="Cantidad de productos" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones (opcional)</label>
+                        <textarea id="observaciones" placeholder="Ingresa cualquier observación especial para tu pedido..." rows="4" style="width: 100%; padding: 15px 20px; border: 2px solid var(--gris-claro); border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--negro);"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Agregar al Carrito</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Dulce Gustito. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="Assets/carrito.js"></script>
+    <script src="Assets/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Establecer fecha mínima como hoy
+            const inputFecha = document.getElementById('fecha');
+            const hoy = new Date().toISOString().split('T')[0];
+            inputFecha.min = hoy;
+
+            // Manejar el submit del formulario
+            const formulario = document.getElementById('formulario-agendar');
+            formulario.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const productoSelect = document.getElementById('producto');
+                const fecha = document.getElementById('fecha').value;
+                const hora = document.getElementById('hora').value;
+                const direccion = document.getElementById('direccion').value;
+                const cantidad = parseInt(document.getElementById('cantidad').value);
+                const observaciones = document.getElementById('observaciones').value;
+                
+                if (!productoSelect.value) {
+                    alert('Por favor selecciona un producto');
+                    return;
+                }
+                
+                const [nombre, precio, icono] = productoSelect.value.split('|');
+                const precioTotal = parseFloat(precio) * cantidad;
+                
+                // Crear ID único para este pedido agendado
+                const pedidoId = `pedido_${Date.now()}`;
+                
+                // Agregar al carrito con toda la información del pedido
+                const producto = {
+                    id: pedidoId,
+                    nombre: nombre,
+                    precio: precioTotal,
+                    icono: icono,
+                    tipo: 'pedido-agendado',
+                    fecha: fecha,
+                    hora: hora,
+                    direccion: direccion,
+                    cantidad: cantidad,
+                    observaciones: observaciones
+                };
+                
+                carrito.agregarItem(producto);
+                
+                // Mostrar confirmación
+                alert(`✓ Pedido agendado y agregado al carrito!\n\n${nombre}\nFecha: ${fecha}\nHora: ${hora}\nCantidad: ${cantidad}\nTotal: $${precioTotal.toLocaleString()}\n\nAhora puedes ir a tu carrito para finalizar tu compra.`);
+                
+                // Limpiar formulario
+                formulario.reset();
+                inputFecha.min = hoy;
+            });
+        });
+    </script>
+</body>
+</html>
+

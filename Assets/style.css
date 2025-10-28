@@ -348,7 +348,9 @@ body {
     font-size: 1rem;
 }
 
-.form-group input {
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 15px 20px;
     border: 2px solid var(--gris-claro);
@@ -359,7 +361,14 @@ body {
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus {
+.form-group select {
+    background: var(--blanco);
+    cursor: pointer;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--rosado);
 }
@@ -432,4 +441,217 @@ body {
     .formulario-pedido {
         padding: 35px;
     }
+}
+
+/* Carrito */
+#carrito-contador {
+    background: var(--amarillo);
+    color: var(--negro);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+/* Toast notifications */
+.toast-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: var(--blanco);
+    color: var(--negro);
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border-left: 4px solid var(--rosado);
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Carrito página */
+.btn-agregar-carrito {
+    background: var(--rosado);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-agregar-carrito:hover {
+    background: var(--rosa-pastel);
+    transform: translateY(-2px);
+}
+
+/* Página de carrito */
+.carrito-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.carrito-item {
+    background: var(--blanco);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.carrito-item-icon {
+    font-size: 50px;
+}
+
+.carrito-item-info {
+    flex: 1;
+}
+
+.carrito-item-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.carrito-item-precio {
+    color: var(--rosado);
+    font-weight: 700;
+}
+
+.carrito-item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--gris-claro);
+    padding: 8px 15px;
+    border-radius: 50px;
+}
+
+.btn-cantidad {
+    background: var(--rosado);
+    color: var(--blanco);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-cantidad:hover {
+    background: var(--rosa-pastel);
+}
+
+.carrito-item-total {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--negro);
+}
+
+.btn-eliminar {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-eliminar:hover {
+    transform: scale(1.2);
+}
+
+.carrito-vacio {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--gris-claro);
+    border-radius: 25px;
+}
+
+.carrito-vacio .emoji {
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+
+.carrito-vacio h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.carrito-resumen {
+    background: linear-gradient(135deg, var(--rosa-pastel) 0%, var(--lila-pastel) 100%);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.carrito-resumen h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.carrito-resumen-total {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--negro);
+    margin-bottom: 30px;
+}
+
+.btn-finalizar {
+    background: var(--amarillo);
+    color: var(--negro);
+    border: none;
+    padding: 15px 50px;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-finalizar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 225, 120, 0.4);
+}
+
+.btn-limpiar-carrito {
+    background: transparent;
+    color: var(--rosado);
+    border: 2px solid var(--rosado);
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.btn-limpiar-carrito:hover {
+    background: var(--rosado);
+    color: var(--blanco);
+}
+
+#btn-limpiar-carrito {
+    margin-top: 20px;
 }

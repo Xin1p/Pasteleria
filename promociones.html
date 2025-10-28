@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dulce Gustito - Pastelería</title>
+    <title>Promociones - Dulce Gustito</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1 class="titulo-principal">Dulce Gustito</h1>
+                <a href="index.html"><h1 class="titulo-principal">Dulce Gustito</h1></a>
             </div>
             <nav class="nav">
                 <ul>
@@ -29,16 +29,28 @@
     </header>
 
     <main>
-        <section class="hero" style="min-height: 70vh;">
-            <div class="hero-decoracion izquierda">🍰</div>
-            <div class="hero-decoracion derecha">🧁</div>
+        <section class="seccion destacada">
             <div class="container">
-                <h2 class="titulo-hero">Bienvenidos a Dulce Gustito</h2>
-                <p class="subtitulo-hero">Pasteles hechos con amor y dedicación</p>
-                <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="cartilla.html" class="btn-submit" style="display: inline-block; text-decoration: none; width: auto;">Ver Cartilla</a>
-                    <a href="promociones.html" class="btn-submit" style="display: inline-block; text-decoration: none; width: auto; background: var(--amarillo);">Ver Promociones</a>
-                    <a href="agendar.html" class="btn-submit" style="display: inline-block; text-decoration: none; width: auto; background: var(--lila-pastel); color: var(--negro);">Agendar Pedido</a>
+                <h2 class="titulo-seccion">Promociones Especiales</h2>
+                <div class="promo-container">
+                    <div class="promo-card">
+                        <div class="promo-badge">🔥</div>
+                        <h3>2x1 en Cupcakes</h3>
+                        <p>Válido todos los martes</p>
+                        <button class="btn-agregar" onclick="agregarAlCarrito('Promo: 2x1 Cupcakes', 12000, '🧁', 'promo')">Aprovechar</button>
+                    </div>
+                    <div class="promo-card">
+                        <div class="promo-badge">⭐</div>
+                        <h3>Descuento 20%</h3>
+                        <p>En pedidos mayores a $50.000</p>
+                        <button class="btn-agregar" onclick="agregarAlCarrito('Promo: Descuento 20%', 10000, '⭐', 'promo')">Aprovechar</button>
+                    </div>
+                    <div class="promo-card">
+                        <div class="promo-badge">🎉</div>
+                        <h3>Promo del Mes</h3>
+                        <p>Torta de cumpleaños grande + decoración especial</p>
+                        <button class="btn-agregar" onclick="agregarAlCarrito('Promo del Mes', 45000, '🎂', 'promo')">Aprovechar</button>
+                    </div>
                 </div>
             </div>
         </section>

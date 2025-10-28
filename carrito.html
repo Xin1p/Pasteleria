@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Dulce Gustito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1 class="titulo-principal">Dulce Gustito</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cartilla.html">Cartilla</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="mas-pedido.html">Lo que más hago</a></li>
+                    <li><a href="agendar.html">Agendar</a></li>
+                    <li><a href="carrito.html" class="btn-carrito">🛒 Carrito <span id="carrito-contador"></span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion">
+            <div class="container carrito-container">
+                <h2 class="titulo-seccion">Mi Carrito</h2>
+                <div id="carrito-lista"></div>
+                <div id="carrito-resumen" class="carrito-resumen" style="display: none;">
+                    <h3>Resumen del Pedido</h3>
+                    <p class="carrito-resumen-total">Total: <span id="carrito-total">$0</span></p>
+                    <button class="btn-finalizar">Finalizar Pedido</button>
+                    <button id="btn-limpiar-carrito" class="btn-limpiar-carrito" onclick="limpiarCarrito()">Limpiar Carrito</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Dulce Gustito. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="Assets/carrito.js"></script>
+    <script src="Assets/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderizarCarrito();
+            
+            const btnFinalizar = document.querySelector('.btn-finalizar');
+            if (btnFinalizar) {
+                btnFinalizar.addEventListener('click', function() {
+                    const items = carrito.obtenerItems();
+                    if (items.length === 0) {
+                        alert('Tu carrito está vacío');
+                        return;
+                    }
+                    
+                    const total = carrito.obtenerTotal();
+                    const resumen = items.map(item => 
+                        `${item.cantidad}x ${item.nombre} - $${item.precio.toLocaleString()}`
+                    ).join('\n');
+                    
+                    alert(`Pedido confirmado!\n\n${resumen}\n\nTotal: $${total.toLocaleString()}\n\nGracias por tu compra! 🎂`);
+                    carrito.limpiarCarrito();
+                    renderizarCarrito();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

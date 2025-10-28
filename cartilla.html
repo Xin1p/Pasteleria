@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartilla - Dulce Gustito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1 class="titulo-principal">Dulce Gustito</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cartilla.html">Cartilla</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="mas-pedido.html">Lo que más hago</a></li>
+                    <li><a href="agendar.html">Agendar</a></li>
+                    <li><a href="carrito.html" class="btn-carrito">🛒 Carrito <span id="carrito-contador"></span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion">
+            <div class="container">
+                <h2 class="titulo-seccion">Nuestra Cartilla</h2>
+                <div class="cartilla-grid">
+                    <div class="item-cartilla">
+                        <div class="item-icon">🎂</div>
+                        <h3>Pastel de Chocolate</h3>
+                        <p class="precio">$25.000</p>
+                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Pastel de Chocolate', 25000, '🎂')">Agregar al Carrito</button>
+                    </div>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🍓</div>
+                        <h3>Pastel de Fresa</h3>
+                        <p class="precio">$28.000</p>
+                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Pastel de Fresa', 28000, '🍓')">Agregar al Carrito</button>
+                    </div>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🍰</div>
+                        <h3>Cheesecake</h3>
+                        <p class="precio">$30.000</p>
+                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Cheesecake', 30000, '🍰')">Agregar al Carrito</button>
+                    </div>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🥐</div>
+                        <h3>Croissant</h3>
+                        <p class="precio">$2.500</p>
+                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Croissant', 2500, '🥐')">Agregar al Carrito</button>
+                    </div>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🍪</div>
+                        <h3>Galletas Artesanales</h3>
+                        <p class="precio">$15.000</p>
+                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Galletas Artesanales', 15000, '🍪')">Agregar al Carrito</button>
+                    </div>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🧁</div>
+                        <h3> cupcakes</h3>
+                        <p class="precio">$12.000</p>
+                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Cupcakes', 12000, '🧁')">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Dulce Gustito. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="Assets/carrito.js"></script>
+    <script src="Assets/script.js"></script>
+</body>
+</html>
+
