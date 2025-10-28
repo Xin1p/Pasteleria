@@ -3,59 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pastelería - Inicio</title>
+    <title>Dulce Gustito - Pastelería</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Assets/style.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <h1>🍰 Pastelería Dulce Tentación</h1>
-            <nav>
+            <div class="logo">
+                <h1 class="titulo-principal">Dulce Gustito</h1>
+            </div>
+            <nav class="nav">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#cartilla">Cartilla</a></li>
+                    <li><a href="#promociones">Promociones</a></li>
+                    <li><a href="#mas-pedido">Lo que más hago</a></li>
+                    <li><a href="#agendar">Agendar</a></li>
+                    <li><a href="#carrito" class="btn-carrito">🛒 Carrito</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="hero">
+        <section id="inicio" class="hero">
+            <div class="hero-decoracion izquierda">🍰</div>
+            <div class="hero-decoracion derecha">🧁</div>
             <div class="container">
-                <h2>Bienvenidos a nuestra pastelería</h2>
-                <p>Descubre el sabor auténtico de nuestros dulces artesanales</p>
-                <button id="btnExplorar" class="btn-principal">Explorar</button>
+                <h2 class="titulo-hero">Bienvenidos a Dulce Gustito</h2>
+                <p class="subtitulo-hero">Pasteles hechos con amor y dedicación</p>
             </div>
         </section>
 
-        <section id="productos">
+        <section id="cartilla" class="seccion">
             <div class="container">
-                <h2>Nuestros Productos</h2>
-                <div class="productos-grid">
-                    <div class="producto-card">
-                        <div class="producto-icon">🎂</div>
-                        <h3>Pasteles</h3>
-                        <p>Deliciosos pasteles personalizados</p>
+                <h2 class="titulo-seccion">Cartilla</h2>
+                <div class="cartilla-grid">
+                    <div class="item-cartilla">
+                        <div class="item-icon">🎂</div>
+                        <h3>Pastel de Chocolate</h3>
+                        <p class="precio">$25.000</p>
                     </div>
-                    <div class="producto-card">
-                        <div class="producto-icon">🥐</div>
-                        <h3>Panadería</h3>
-                        <p>Panes frescos todos los días</p>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🍓</div>
+                        <h3>Pastel de Fresa</h3>
+                        <p class="precio">$28.000</p>
                     </div>
-                    <div class="producto-card">
-                        <div class="producto-icon">🍪</div>
-                        <h3>Galletas</h3>
-                        <p>Galletas artesanales variadas</p>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🍰</div>
+                        <h3>Cheesecake</h3>
+                        <p class="precio">$30.000</p>
+                    </div>
+                    <div class="item-cartilla">
+                        <div class="item-icon">🥐</div>
+                        <h3>Croissant</h3>
+                        <p class="precio">$2.500</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="promociones" class="seccion destacada">
+            <div class="container">
+                <h2 class="titulo-seccion">Promociones Especiales</h2>
+                <div class="promo-container">
+                    <div class="promo-card">
+                        <div class="promo-badge">🔥</div>
+                        <h3>2x1 en Cupcakes</h3>
+                        <p>Válido todos los martes</p>
+                        <button class="btn-agregar">Aprovechar</button>
+                    </div>
+                    <div class="promo-card">
+                        <div class="promo-badge">⭐</div>
+                        <h3>Descuento 20%</h3>
+                        <p>En pedidos mayores a $50.000</p>
+                        <button class="btn-agregar">Aprovechar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mas-pedido" class="seccion">
+            <div class="container">
+                <h2 class="titulo-seccion">Lo que más hago</h2>
+                <div class="popular-grid">
+                    <div class="popular-card">
+                        <div class="popular-badge">Más pedido</div>
+                        <div class="popular-icon">👑</div>
+                        <h3>Pastel de Tres Leches</h3>
+                    </div>
+                    <div class="popular-card">
+                        <div class="popular-icon">⭐</div>
+                        <h3>Torta Red Velvet</h3>
+                    </div>
+                    <div class="popular-card">
+                        <div class="popular-icon">💗</div>
+                        <h3>Pastel de Vainilla</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="agendar" class="seccion form-section">
+            <div class="container">
+                <h2 class="titulo-seccion">Agenda tu Pedido</h2>
+                <form class="formulario-pedido">
+                    <div class="form-group">
+                        <label for="fecha">Fecha de entrega</label>
+                        <input type="date" id="fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hora">Hora de entrega</label>
+                        <input type="time" id="hora" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" placeholder="Ingresa tu dirección" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" placeholder="Cantidad de pasteles" min="1" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Reservar Pedido</button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Pastelería Dulce Tentación. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Dulce Gustito. Todos los derechos reservados.</p>
         </div>
     </footer>
 
