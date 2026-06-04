@@ -3,139 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar Pedido - Dulce Gustito</title>
+    <title>Para Dana — con todo mi corazón</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/dana.css">
+    <style>
+        :root {
+            --rosa-suave: #f8e8ee;
+            --rosa-medio: #e8b4c8;
+            --vino: #6b2d4a;
+            --crema: #fff9f5;
+            --sombra: rgba(107, 45, 74, 0.12);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body.theme-carta {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(160deg, var(--rosa-suave) 0%, var(--crema) 45%, #fce4ec 100%);
+            color: var(--vino);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .pagina {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem 4rem;
+        }
+
+        .portada {
+            text-align: center;
+            padding: 3rem 1rem 2.5rem;
+            opacity: 0;
+            animation: aparecer 1.2s ease forwards;
+        }
+
+        .portada .sello { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .portada h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 12vw, 4.5rem);
+            font-weight: 400;
+            color: var(--vino);
+            line-height: 1.2;
+        }
+
+        .portada .subtitulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-top: 0.75rem;
+            opacity: 0.85;
+        }
+
+        .portada .fecha-carta {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .seccion-carta {
+            background: var(--crema);
+            border-radius: 4px;
+            padding: 2rem 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 32px var(--sombra);
+            border: 1px solid rgba(232, 180, 200, 0.4);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .seccion-carta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .seccion-carta h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--rosa-medio);
+            padding-bottom: 0.5rem;
+        }
+
+        .seccion-carta p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+        }
+
+        .seccion-carta p:last-child { margin-bottom: 0; }
+
+        .lista-amor { list-style: none; padding: 0; }
+
+        .lista-amor li {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            padding: 0.6rem 0 0.6rem 1.75rem;
+            position: relative;
+            border-bottom: 1px dashed rgba(232, 180, 200, 0.5);
+        }
+
+        .lista-amor li:last-child { border-bottom: none; }
+
+        .lista-amor li::before {
+            content: '♥';
+            position: absolute;
+            left: 0;
+            color: var(--rosa-medio);
+        }
+
+        .declaracion {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--vino) 0%, #8b3d5c 100%);
+            color: var(--crema);
+            border-radius: 4px;
+            margin: 2rem 0;
+            box-shadow: 0 12px 40px var(--sombra);
+            opacity: 0;
+            transform: scale(0.98);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .declaracion.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .declaracion .firma-script {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 8vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        .declaracion p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .zona-sorpresa { text-align: center; margin-top: 2rem; }
+
+        .btn-abrir {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 1rem 1.75rem;
+            border: 2px solid var(--vino);
+            background: transparent;
+            color: var(--vino);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            max-width: 100%;
+        }
+
+        .btn-abrir:hover {
+            background: var(--vino);
+            color: var(--crema);
+            transform: translateY(-2px);
+        }
+
+        .btn-abrir.oculto { display: none; }
+
+        .mensaje-secreto {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.75rem 1.5rem;
+            background: var(--rosa-suave);
+            border-radius: 8px;
+            animation: aparecer 0.6s ease;
+        }
+
+        .mensaje-secreto.mostrar { display: block; }
+
+        .pregunta-novios {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            font-style: normal;
+            line-height: 1.6;
+            color: var(--vino);
+        }
+
+        .pie {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        @keyframes aparecer { to { opacity: 1; } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .portada, .seccion-carta, .declaracion {
+                opacity: 1;
+                transform: none;
+                animation: none;
+                transition: none;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html"><h1 class="titulo-principal">Dulce Gustito</h1></a>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="cartilla.html">Cartilla</a></li>
-                    <li><a href="promociones.html">Promociones</a></li>
-                    <li><a href="mas-pedido.html">Lo que más hago</a></li>
-                    <li><a href="agendar.html">Agendar</a></li>
-                    <li><a href="carrito.html" class="btn-carrito">🛒 Carrito <span id="carrito-contador"></span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="theme-carta">
 
-    <main>
-        <section class="seccion form-section">
-            <div class="container">
-                <h2 class="titulo-seccion">Agenda tu Pedido</h2>
-                <form class="formulario-pedido" id="formulario-agendar">
-                    <div class="form-group">
-                        <label for="producto">Producto</label>
-                        <select id="producto" class="form-group input" required>
-                            <option value="">Selecciona un producto</option>
-                            <option value="Pastel de Chocolate|25000|🎂">Pastel de Chocolate - $25.000</option>
-                            <option value="Pastel de Fresa|28000|🍓">Pastel de Fresa - $28.000</option>
-                            <option value="Cheesecake|30000|🍰">Cheesecake - $30.000</option>
-                            <option value="Pastel de Tres Leches|32000|👑">Pastel de Tres Leches - $32.000</option>
-                            <option value="Torta Red Velvet|35000|⭐">Torta Red Velvet - $35.000</option>
-                            <option value="Pastel de Vainilla|28000|💗">Pastel de Vainilla - $28.000</option>
-                            <option value="Galletas Artesanales|15000|🍪">Galletas Artesanales - $15.000</option>
-                            <option value="Cupcakes|12000|🧁">Cupcakes - $12.000</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="fecha">Fecha de entrega</label>
-                        <input type="date" id="fecha" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="hora">Hora de entrega</label>
-                        <input type="time" id="hora" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="direccion">Dirección de entrega</label>
-                        <input type="text" id="direccion" placeholder="Ingresa tu dirección completa" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" id="cantidad" placeholder="Cantidad de productos" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="observaciones">Observaciones (opcional)</label>
-                        <textarea id="observaciones" placeholder="Ingresa cualquier observación especial para tu pedido..." rows="4" style="width: 100%; padding: 15px 20px; border: 2px solid var(--gris-claro); border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--negro);"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Agregar al Carrito</button>
-                </form>
-            </div>
+    <nav class="dana-nav">
+        <a href="index.html" class="dana-logo">Para Dana</a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cartilla.html">Recuerdos</a></li>
+            <li><a href="promociones.html">Sorpresas</a></li>
+            <li><a href="mas-pedido.html">Lo que brilla</a></li>
+            <li><a href="agendar.html" class="activo">Carta</a></li>
+            <li><a href="carrito.html" class="dana-cofre">♥ Cofre <span id="carrito-contador"></span></a></li>
+        </ul>
+    </nav>
+
+    <div class="pagina">
+
+        <header class="portada">
+            <p class="sello">💌</p>
+            <h1 id="titulo-nombre">Para Dana</h1>
+            <p class="subtitulo" id="subtitulo-portada">Una carta que guardé en el alma</p>
+            <p class="fecha-carta" id="fecha-carta"></p>
+        </header>
+
+        <article class="seccion-carta" data-reveal>
+            <h2>Querida Dana,</h2>
+            <p>
+                Dana, tú sabes todo lo que hemos pasado juntos, lo que nos demoramos
+                en poder decirnos lo mucho que nos amamos.
+            </p>
+            <p>
+                Lo mucho que ansiaba decírtelo, lo mucho que ansiaba elegirte de verdad,
+                lo mucho que ansiaba hacer todo tranquilamente junto a ti. Quiero que sepas
+                que me tienes completamente enamorado.
+            </p>
+            <p>
+                Querida, quiero que tú y yo elevemos nuestra relación a algo más.
+                Quisiera demostrar muchas cosas a tu lado, cumplir y estar siempre para ti,
+                ser feliz junto a ti, conocerte infinitamente y realmente hacerte feliz —
+                y ser felices.
+            </p>
+        </article>
+
+        <article class="seccion-carta" data-reveal>
+            <h2>Cosas que amo de ti</h2>
+            <ul class="lista-amor">
+                <li>Tu forma de hacerme sonreír sin intentarlo</li>
+                <li>La calma que me das cuando todo va rápido</li>
+                <li>Tu manera única de ser tú misma</li>
+                <li>Los pequeños gestos que solo yo noto</li>
+                <li>Que con solo pensar en ti, el día mejora</li>
+            </ul>
+        </article>
+
+        <article class="seccion-carta" data-reveal>
+            <h2>Lo que quiero contigo</h2>
+            <p>
+                Quiero seguir conociéndote, cuidarte y elegirte en los detalles,
+                no solo en los grandes momentos. Quiero que sepas que puedes confiar en mí
+                y que mi cariño por ti es sincero.
+            </p>
+            <p>
+                Si algún día dudas de lo que siento, vuelve a leer esto:
+                escribí cada palabra pensando en ti, Dana.
+            </p>
+        </article>
+
+        <section class="declaracion" data-reveal>
+            <p class="firma-script" id="linea-declaracion">Me gustas. Me encantas.</p>
+            <p id="texto-declaracion">
+                Dana, quiero que sepas que me importas de verdad.
+                Eres la persona por la que vale la pena escribir cartas como esta.
+            </p>
         </section>
-    </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Dulce Gustito. Todos los derechos reservados.</p>
+        <div class="zona-sorpresa">
+            <button type="button" class="btn-abrir" id="btn-sorpresa"></button>
+            <p class="mensaje-secreto" id="mensaje-secreto"></p>
         </div>
-    </footer>
 
-    <script src="Assets/carrito.js"></script>
-    <script src="Assets/script.js"></script>
+        <footer class="pie">
+            <p>Hecho con cariño · Solo para ti</p>
+        </footer>
+
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Establecer fecha mínima como hoy
-            const inputFecha = document.getElementById('fecha');
-            const hoy = new Date().toISOString().split('T')[0];
-            inputFecha.min = hoy;
+        const CONFIG = {
+            nombre: 'Dana',
+            subtituloPortada: 'Una carta que guardé en el alma',
+            fechaCarta: '',
+            lineaDeclaracion: 'Me gustas. Me encantas.',
+            textoBoton: 'Si estás lista para continuar, presiona aquí',
+            preguntaNovios:
+                '¿Me permitirías ser tu novio y escalar juntos día a día, ' +
+                'y estar el uno para el otro?'
+        };
 
-            // Manejar el submit del formulario
-            const formulario = document.getElementById('formulario-agendar');
-            formulario.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const productoSelect = document.getElementById('producto');
-                const fecha = document.getElementById('fecha').value;
-                const hora = document.getElementById('hora').value;
-                const direccion = document.getElementById('direccion').value;
-                const cantidad = parseInt(document.getElementById('cantidad').value);
-                const observaciones = document.getElementById('observaciones').value;
-                
-                if (!productoSelect.value) {
-                    alert('Por favor selecciona un producto');
-                    return;
-                }
-                
-                const [nombre, precio, icono] = productoSelect.value.split('|');
-                const precioTotal = parseFloat(precio) * cantidad;
-                
-                // Crear ID único para este pedido agendado
-                const pedidoId = `pedido_${Date.now()}`;
-                
-                // Agregar al carrito con toda la información del pedido
-                const producto = {
-                    id: pedidoId,
-                    nombre: nombre,
-                    precio: precioTotal,
-                    icono: icono,
-                    tipo: 'pedido-agendado',
-                    fecha: fecha,
-                    hora: hora,
-                    direccion: direccion,
-                    cantidad: cantidad,
-                    observaciones: observaciones
-                };
-                
-                carrito.agregarItem(producto);
-                
-                // Mostrar confirmación
-                alert(`✓ Pedido agendado y agregado al carrito!\n\n${nombre}\nFecha: ${fecha}\nHora: ${hora}\nCantidad: ${cantidad}\nTotal: $${precioTotal.toLocaleString()}\n\nAhora puedes ir a tu carrito para finalizar tu compra.`);
-                
-                // Limpiar formulario
-                formulario.reset();
-                inputFecha.min = hoy;
+        document.getElementById('titulo-nombre').textContent = 'Para ' + CONFIG.nombre;
+        document.getElementById('subtitulo-portada').textContent = CONFIG.subtituloPortada;
+        document.getElementById('linea-declaracion').textContent = CONFIG.lineaDeclaracion;
+        document.getElementById('btn-sorpresa').textContent = CONFIG.textoBoton;
+
+        const fechaEl = document.getElementById('fecha-carta');
+        if (CONFIG.fechaCarta) {
+            fechaEl.textContent = CONFIG.fechaCarta;
+        } else {
+            fechaEl.textContent = new Date().toLocaleDateString('es-ES', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
             });
+        }
+
+        document.title = 'Para ' + CONFIG.nombre + ' — con todo mi corazón';
+
+        const observador = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        document.querySelectorAll('[data-reveal]').forEach((el) => observador.observe(el));
+
+        const btn = document.getElementById('btn-sorpresa');
+        const secreto = document.getElementById('mensaje-secreto');
+        let abierto = false;
+
+        btn.addEventListener('click', () => {
+            if (!abierto) {
+                secreto.textContent = CONFIG.preguntaNovios;
+                secreto.className = 'mensaje-secreto pregunta-novios mostrar';
+                btn.classList.add('oculto');
+                abierto = true;
+            }
         });
     </script>
+    <script src="Assets/cofre.js"></script>
 </body>
 </html>
-

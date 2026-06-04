@@ -127,7 +127,9 @@ function initAnimaciones() {
     }, observerOptions);
     
     // Aplicar animación a los elementos
-    const elementos = document.querySelectorAll('.item-cartilla, .promo-card, .popular-card');
+    const elementos = document.querySelectorAll(
+        '.item-cartilla, .promo-card, .popular-card, .polaroid, .regalo, .estrella-item, [data-reveal-card]'
+    );
     
     elementos.forEach(elemento => {
         elemento.style.opacity = '0';
@@ -158,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Efecto hover suave para las tarjetas
-document.querySelectorAll('.item-cartilla, .popular-card').forEach(card => {
+document.querySelectorAll('.item-cartilla, .popular-card, .polaroid, .estrella-item').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transition = 'all 0.3s ease';
     });

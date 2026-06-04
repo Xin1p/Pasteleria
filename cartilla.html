@@ -3,85 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartilla - Dulce Gustito</title>
+    <title>Recuerdos — Para Dana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/dana.css">
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html"><h1 class="titulo-principal">Dulce Gustito</h1></a>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="cartilla.html">Cartilla</a></li>
-                    <li><a href="promociones.html">Promociones</a></li>
-                    <li><a href="mas-pedido.html">Lo que más hago</a></li>
-                    <li><a href="agendar.html">Agendar</a></li>
-                    <li><a href="carrito.html" class="btn-carrito">🛒 Carrito <span id="carrito-contador"></span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="theme-cartilla">
+    <nav class="dana-nav">
+        <a href="index.html" class="dana-logo">Para Dana</a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cartilla.html" class="activo">Recuerdos</a></li>
+            <li><a href="promociones.html">Sorpresas</a></li>
+            <li><a href="mas-pedido.html">Lo que brilla</a></li>
+            <li><a href="agendar.html">Carta</a></li>
+            <li><a href="carrito.html" class="dana-cofre">♥ Cofre <span id="carrito-contador"></span></a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section class="seccion">
-            <div class="container">
-                <h2 class="titulo-seccion">Nuestra Cartilla</h2>
-                <div class="cartilla-grid">
-                    <div class="item-cartilla">
-                        <div class="item-icon">🎂</div>
-                        <h3>Pastel de Chocolate</h3>
-                        <p class="precio">$25.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Pastel de Chocolate', 25000, '🎂')">Agregar al Carrito</button>
-                    </div>
-                    <div class="item-cartilla">
-                        <div class="item-icon">🍓</div>
-                        <h3>Pastel de Fresa</h3>
-                        <p class="precio">$28.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Pastel de Fresa', 28000, '🍓')">Agregar al Carrito</button>
-                    </div>
-                    <div class="item-cartilla">
-                        <div class="item-icon">🍰</div>
-                        <h3>Cheesecake</h3>
-                        <p class="precio">$30.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Cheesecake', 30000, '🍰')">Agregar al Carrito</button>
-                    </div>
-                    <div class="item-cartilla">
-                        <div class="item-icon">🥐</div>
-                        <h3>Croissant</h3>
-                        <p class="precio">$2.500</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Croissant', 2500, '🥐')">Agregar al Carrito</button>
-                    </div>
-                    <div class="item-cartilla">
-                        <div class="item-icon">🍪</div>
-                        <h3>Galletas Artesanales</h3>
-                        <p class="precio">$15.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Galletas Artesanales', 15000, '🍪')">Agregar al Carrito</button>
-                    </div>
-                    <div class="item-cartilla">
-                        <div class="item-icon">🧁</div>
-                        <h3> cupcakes</h3>
-                        <p class="precio">$12.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Cupcakes', 12000, '🧁')">Agregar al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main class="contenedor">
+        <h1 class="titulo-pagina">Capítulos de nosotros</h1>
+        <p class="subtitulo-pagina">Cada polaroid es un recuerdo</p>
+
+        <div class="grid-polaroid">
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🌅</div>
+                <h3>El primer día</h3>
+                <p class="caption">[EDITAR: cómo os conocisteis]</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('El primer día', 'El día que todo empezó a sentirse distinto', '🌅')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">☕</div>
+                <h3>Una tarde juntos</h3>
+                <p class="caption">[EDITAR: un detalle concreto]</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Una tarde juntos', 'Tiempo contigo que no cambiaría', '☕')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🎵</div>
+                <h3>Nuestra canción</h3>
+                <p class="caption">[EDITAR: nombre de la canción]</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Nuestra canción', 'Cada vez que la escucho pienso en ti', '🎵')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🌙</div>
+                <h3>Una noche especial</h3>
+                <p class="caption">[EDITAR: una noche que no olvidas]</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Una noche especial', 'Contigo hasta tarde', '🌙')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">💬</div>
+                <h3>Algo que dijiste</h3>
+                <p class="caption">[EDITAR: una frase suya]</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Algo que dijiste', 'Tus palabras se me quedan guardadas', '💬')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🌸</div>
+                <h3>Por venir</h3>
+                <p class="caption">[EDITAR: un plan futuro]</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Por venir', 'Lo mejor está por escribirse', '🌸')">Guardar en el cofre</button>
+            </article>
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Dulce Gustito. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="Assets/carrito.js"></script>
+    <footer class="pie-dana">Tema: álbum polaroid</footer>
+    <script src="Assets/cofre.js"></script>
     <script src="Assets/script.js"></script>
 </body>
 </html>
-

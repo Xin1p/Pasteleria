@@ -3,74 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lo que más hago - Dulce Gustito</title>
+    <title>Lo que brilla — Para Dana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/dana.css">
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html"><h1 class="titulo-principal">Dulce Gustito</h1></a>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="cartilla.html">Cartilla</a></li>
-                    <li><a href="promociones.html">Promociones</a></li>
-                    <li><a href="mas-pedido.html">Lo que más hago</a></li>
-                    <li><a href="agendar.html">Agendar</a></li>
-                    <li><a href="carrito.html" class="btn-carrito">🛒 Carrito <span id="carrito-contador"></span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="theme-constelacion">
+    <nav class="dana-nav">
+        <a href="index.html" class="dana-logo">Para Dana</a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cartilla.html">Recuerdos</a></li>
+            <li><a href="promociones.html">Sorpresas</a></li>
+            <li><a href="mas-pedido.html" class="activo">Lo que brilla</a></li>
+            <li><a href="agendar.html">Carta</a></li>
+            <li><a href="carrito.html" class="dana-cofre">♥ Cofre <span id="carrito-contador"></span></a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section class="seccion">
-            <div class="container">
-                <h2 class="titulo-seccion">Lo que más hago</h2>
-                <div class="popular-grid">
-                    <div class="popular-card">
-                        <div class="popular-badge">Más pedido</div>
-                        <div class="popular-icon">👑</div>
-                        <h3>Pastel de Tres Leches</h3>
-                        <p class="precio">$32.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Pastel de Tres Leches', 32000, '👑')">Agregar al Carrito</button>
-                    </div>
-                    <div class="popular-card">
-                        <div class="popular-icon">⭐</div>
-                        <h3>Torta Red Velvet</h3>
-                        <p class="precio">$35.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Torta Red Velvet', 35000, '⭐')">Agregar al Carrito</button>
-                    </div>
-                    <div class="popular-card">
-                        <div class="popular-icon">💗</div>
-                        <h3>Pastel de Vainilla</h3>
-                        <p class="precio">$28.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Pastel de Vainilla', 28000, '💗')">Agregar al Carrito</button>
-                    </div>
-                    <div class="popular-card">
-                        <div class="popular-icon">🎂</div>
-                        <h3>Torta de Chocolate</h3>
-                        <p class="precio">$30.000</p>
-                        <button class="btn-agregar-carrito" onclick="agregarAlCarrito('Torta de Chocolate', 30000, '🎂')">Agregar al Carrito</button>
-                    </div>
+    <main class="contenedor">
+        <h1 class="titulo-pagina">Lo que más brilla en ti</h1>
+        <p class="subtitulo-pagina">Tu constelación personal</p>
+
+        <div class="lista-brillo">
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">1</span>
+                <span class="emoji">😊</span>
+                <div>
+                    <h3>Tu sonrisa</h3>
+                    <p>Ilumina cualquier día aburrido.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Tu sonrisa', 'Lo primero que amo de ti', '😊')">Guardar</button>
                 </div>
-            </div>
-        </section>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">2</span>
+                <span class="emoji">🫶</span>
+                <div>
+                    <h3>Tu forma de cuidar</h3>
+                    <p>Cómo te preocupas por los demás sin hacer ruido.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Tu forma de cuidar', 'Me haces querer ser mejor', '🫶')">Guardar</button>
+                </div>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">3</span>
+                <span class="emoji">✨</span>
+                <div>
+                    <h3>Tu autenticidad</h3>
+                    <p>Eres Dana, y eso se nota.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Tu autenticidad', 'Eres única', '✨')">Guardar</button>
+                </div>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">4</span>
+                <span class="emoji">💭</span>
+                <div>
+                    <h3>Nuestras conversaciones</h3>
+                    <p>[EDITAR: de qué hablan, qué te hace reír]</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Nuestras conversaciones', 'Contigo el tiempo vuela', '💭')">Guardar</button>
+                </div>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">5</span>
+                <span class="emoji">💕</span>
+                <div>
+                    <h3>Simplemente tú</h3>
+                    <p>Por eso escribí este sitio entero para ti.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Simplemente tú', 'Mi estrella favorita eres tú', '💕')">Guardar</button>
+                </div>
+            </article>
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Dulce Gustito. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="Assets/carrito.js"></script>
+    <footer class="pie-dana">Tema: constelación</footer>
+    <script src="Assets/cofre.js"></script>
     <script src="Assets/script.js"></script>
 </body>
 </html>
-

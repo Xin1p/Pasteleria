@@ -3,55 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dulce Gustito - Pastelería</title>
+    <title>Para Dana — Inicio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/dana.css">
 </head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1 class="titulo-principal">Dulce Gustito</h1>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="cartilla.html">Cartilla</a></li>
-                    <li><a href="promociones.html">Promociones</a></li>
-                    <li><a href="mas-pedido.html">Lo que más hago</a></li>
-                    <li><a href="agendar.html">Agendar</a></li>
-                    <li><a href="carrito.html" class="btn-carrito">🛒 Carrito <span id="carrito-contador"></span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="theme-inicio">
+    <nav class="dana-nav">
+        <a href="index.html" class="dana-logo">Para Dana</a>
+        <ul>
+            <li><a href="index.html" class="activo">Inicio</a></li>
+            <li><a href="cartilla.html">Recuerdos</a></li>
+            <li><a href="promociones.html">Sorpresas</a></li>
+            <li><a href="mas-pedido.html">Lo que brilla</a></li>
+            <li><a href="agendar.html">Carta</a></li>
+            <li><a href="carrito.html" class="dana-cofre">♥ Cofre <span id="carrito-contador"></span></a></li>
+        </ul>
+    </nav>
 
     <main>
-        <section class="hero" style="min-height: 70vh;">
-            <div class="hero-decoracion izquierda">🍰</div>
-            <div class="hero-decoracion derecha">🧁</div>
-            <div class="container">
-                <h2 class="titulo-hero">Bienvenidos a Dulce Gustito</h2>
-                <p class="subtitulo-hero">Pasteles hechos con amor y dedicación</p>
-                <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="cartilla.html" class="btn-submit" style="display: inline-block; text-decoration: none; width: auto;">Ver Cartilla</a>
-                    <a href="promociones.html" class="btn-submit" style="display: inline-block; text-decoration: none; width: auto; background: var(--amarillo);">Ver Promociones</a>
-                    <a href="agendar.html" class="btn-submit" style="display: inline-block; text-decoration: none; width: auto; background: var(--lila-pastel); color: var(--negro);">Agendar Pedido</a>
-                </div>
+        <section class="hero-portal contenedor">
+            <p class="estrellas">✦ ✧ ✦</p>
+            <h1>Para Dana</h1>
+            <p class="subtitulo-pagina" style="color: #e8b4c8;">Un pequeño universo hecho solo para ti</p>
+            <p style="max-width: 420px; margin: 0 auto; opacity: 0.85; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">
+                Cada página es un capítulo distinto. Entra cuando quieras.
+            </p>
+
+            <div class="grid-portal">
+                <a href="cartilla.html" class="tarjeta-portal">
+                    <div class="icono">📷</div>
+                    <h3>Recuerdos</h3>
+                    <p>Álbum de momentos</p>
+                </a>
+                <a href="promociones.html" class="tarjeta-portal">
+                    <div class="icono">🎁</div>
+                    <h3>Sorpresas</h3>
+                    <p>Regalos y promesas</p>
+                </a>
+                <a href="mas-pedido.html" class="tarjeta-portal">
+                    <div class="icono">✨</div>
+                    <h3>Lo que brilla</h3>
+                    <p>Lo que más amo de ti</p>
+                </a>
+                <a href="agendar.html" class="tarjeta-portal">
+                    <div class="icono">💌</div>
+                    <h3>La carta</h3>
+                    <p>Tu declaración</p>
+                </a>
+                <a href="carrito.html" class="tarjeta-portal">
+                    <div class="icono">📦</div>
+                    <h3>Cofre</h3>
+                    <p>Lo que guardas de nosotros</p>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Dulce Gustito. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="Assets/carrito.js"></script>
-    <script src="Assets/script.js"></script>
+    <footer class="pie-dana">Hecho con cariño · Solo para Dana</footer>
+    <script src="Assets/cofre.js"></script>
 </body>
 </html>
-
