@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuerdos — Para Dana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/dana.css">
+    <style>
+        :root {
+            --primary-color: #d4488f;
+            --secondary-color: #f5b5d4;
+            --accent-color: #7d3a6f;
+            --warm-gold: #e8b4a0;
+        }
+        
+        .theme-cartilla {
+            background: linear-gradient(135deg, #fef5f7 0%, #f5e5f0 100%);
+        }
+        
+        .titulo-pagina {
+            color: var(--accent-color);
+            text-shadow: 0 2px 4px rgba(125, 58, 111, 0.1);
+        }
+        
+        .subtitulo-pagina {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .polaroid {
+            border: 8px solid white;
+            box-shadow: 0 8px 20px rgba(212, 72, 143, 0.15);
+            background: linear-gradient(135deg, #fff9fc 0%, #f8f0f5 100%);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .polaroid:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(212, 72, 143, 0.25);
+        }
+        
+        .polaroid h3 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .polaroid .caption {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        
+        .grid-polaroid {
+            background: linear-gradient(180deg, rgba(245, 181, 212, 0.05) 0%, rgba(212, 72, 143, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body class="theme-cartilla">
+    <nav class="dana-nav">
+        <a href="index.html" class="dana-logo">Para Dana</a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="recuerdos.html" class="activo">Recuerdos</a></li>
+            <li><a href="sorpresas.html">Sorpresas</a></li>
+            <li><a href="loquebrilla.html">Lo que brilla</a></li>
+            <li><a href="carta.html">Carta</a></li>
+            <li><a href="cofre.html" class="dana-cofre">♥ Cofre <span id="carrito-contador"></span></a></li>
+        </ul>
+    </nav>
+
+    <main class="contenedor">
+        <h1 class="titulo-pagina">Capítulos de nosotros</h1>
+        <p class="subtitulo-pagina">Quiero que tengamos esto como álbum y guardemos muchos momentos hermosos mi xinxulina</p>
+        
+        <div style="text-align: center; margin: 2rem 0;">
+            <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/04/my-dress-up-darling-marin-gojo-fireworks.jpg?q=50&fit=crop&w=825&dpr=1.5" alt="Nuestro álbum" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        </div>
+
+        <p style="text-align: center; color: var(--primary-color); font-size: 1.1rem; margin: 2rem auto; max-width: 600px; line-height: 1.8;">
+            Quiero tener un álbum lleno de muchas cositas juntos y quiero que todo quede como un buen recuerdito entre nosotros.
+        </p>
+        <p style="text-align: center; color: var(--accent-color); font-size: 1.05rem; margin: 1rem auto 2rem; max-width: 600px; font-style: italic;">
+            como estos recuerditos <3
+        </p>
+
+        <div class="grid-polaroid">
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🌅</div>
+                <h3>El primer día</h3>
+                <p class="caption">Un recuerdo que guardaremos por siempre</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('El primer día', 'El día que todo empezó a sentirse distinto', '🌅')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">☕</div>
+                <h3>Una tarde juntos</h3>
+                <p class="caption">Momentos que llenarán este álbum</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Una tarde juntos', 'Tiempo contigo que no cambiaría', '☕')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🎵</div>
+                <h3>Nuestra canción</h3>
+                <p class="caption">La banda sonora de nosotros</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Nuestra canción', 'Cada vez que la escucho pienso en ti', '🎵')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🌙</div>
+                <h3>Una noche especial</h3>
+                <p class="caption">Noches que recordaremos siempre</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Una noche especial', 'Contigo hasta tarde', '🌙')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">💬</div>
+                <h3>Algo que dijiste</h3>
+                <p class="caption">Palabras que se quedan en el corazón</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Algo que dijiste', 'Tus palabras se me quedan guardadas', '💬')">Guardar en el cofre</button>
+            </article>
+            <article class="polaroid" data-reveal-card>
+                <div class="foto-placeholder">🌸</div>
+                <h3>Por venir</h3>
+                <p class="caption">Lo mejor está aún por escribirse juntos</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Por venir', 'Lo mejor está por escribirse', '🌸')">Guardar en el cofre</button>
+            </article>
+        </div>
+    </main>
+
+    <footer class="pie-dana">Tema: álbum polaroid</footer>
+    <script src="Assets/cofre.js"></script>
+    <script src="Assets/script.js"></script>
+</body>
+</html>
+
+
+

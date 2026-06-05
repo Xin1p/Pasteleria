@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo que brilla — Para Dana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/dana.css">
+</head>
+<body class="theme-constelacion">
+    <nav class="dana-nav">
+        <a href="index.html" class="dana-logo">Para Dana</a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="recuerdos.html">Recuerdos</a></li>
+            <li><a href="sorpresas.html">Sorpresas</a></li>
+            <li><a href="loquebrilla.html" class="activo">Lo que brilla</a></li>
+            <li><a href="carta.html">Carta</a></li>
+            <li><a href="cofre.html" class="dana-cofre">♥ Cofre <span id="carrito-contador"></span></a></li>
+        </ul>
+    </nav>
+
+    <main class="contenedor">
+        <h1 class="titulo-pagina">Lo que mis ojos ven en ti</h1>
+        <p class="subtitulo-pagina">Tu constelación personal</p>
+
+        <div class="lista-brillo">
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">1</span>
+                <span class="emoji">🌿</span>
+                <div>
+                    <h3>Calma y sentimiento</h3>
+                    <p>Traes calma, paz y mucho sentimiento.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Calma y sentimiento', 'Traes calma, paz y mucho sentimiento', '🌿')">Guardar</button>
+                </div>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">2</span>
+                <span class="emoji">🫶</span>
+                <div>
+                    <h3>Me cuidas y te cuido</h3>
+                    <p>Eres una mujer a quien quiero cuidar, y que me cuida también.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Me cuidas y te cuido', 'Eres una mujer a quien quiero cuidar, y que me cuida también', '🫶')">Guardar</button>
+                </div>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">3</span>
+                <span class="emoji">✨</span>
+                <div>
+                    <h3>Acompañar tus sueños</h3>
+                    <p>Quiero consentirte, acompañar y apoyar tus sueños.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Acompañar tus sueños', 'Quiero consentirte, acompañar y apoyar tus sueños', '✨')">Guardar</button>
+                </div>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">4</span>
+                <span class="emoji">🏡</span>
+                <div>
+                    <h3>Eres mi hogar</h3>
+                    <p>Te veo como un hogar al que siempre elegiré y que es muy importante para mí.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Eres mi hogar', 'Te veo como un hogar al que siempre elegiré y que es muy importante para mí', '🏡')">Guardar</button>
+                </div>
+            </article>
+            <article class="estrella-item" data-reveal-card>
+                <span class="rango">5</span>
+                <span class="emoji">💖</span>
+                <div>
+                    <h3>Auténtica, siempre tú</h3>
+                    <p>Eres auténtica — eres Dana — y quiero conocerte más cada día.</p>
+                    <button type="button" class="btn-guardar" onclick="agregarAlCofre('Auténtica, siempre tú', 'Eres auténtica — eres Dana — y quiero conocerte más cada día', '💖')">Guardar</button>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="pie-dana">Tema: constelación</footer>
+    <script src="Assets/cofre.js"></script>
+    <script src="Assets/script.js"></script>
+</body>
+</html>
+
+
+

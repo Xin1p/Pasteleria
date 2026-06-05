@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorpresas — Para Dana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/dana.css">
+</head>
+<body class="theme-sorpresas">
+    <nav class="dana-nav">
+        <a href="index.html" class="dana-logo">Para Dana</a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="recuerdos.html">Recuerdos</a></li>
+            <li><a href="sorpresas.html" class="activo">Sorpresas</a></li>
+            <li><a href="loquebrilla.html">Lo que brilla</a></li>
+            <li><a href="carta.html">Carta</a></li>
+            <li><a href="cofre.html" class="dana-cofre">♥ Cofre <span id="carrito-contador"></span></a></li>
+        </ul>
+    </nav>
+
+    <main class="contenedor">
+        <h1 class="titulo-pagina">Pequeños detalles</h1>
+        <p class="subtitulo-pagina">Promesas y momentos envueltos con cariño</p>
+
+        <div class="grid-regalos">
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">🎀</div>
+                <h3>Desayuno sorpresa</h3>
+                <p>Un día levantarte y que ya esté todo listo, solo porque te mereces mimos.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Desayuno sorpresa', 'Un mañana especial para ti', '🎀')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">🌹</div>
+                <h3>Detalle inesperado</h3>
+                <p>Una flor, una nota, un mensaje a mitad del día.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Detalle inesperado', 'Quiero sorprenderte', '🌹')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">🎬</div>
+                <h3>Noche de película</h3>
+                <p>Manta, algo rico y tú eligiendo qué ver.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Noche de película', 'Una noche solo para nosotros', '🎬')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">✈️</div>
+                <h3>Aventura juntos</h3>
+                <p>Por muchos abrazitos, cartitas y besitos, y también abrir muchos sobresitos juntitos.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Aventura juntos', 'Por muchos abrazitos, cartitas, besitos y sobresitos juntitos', '✈️')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">💝</div>
+                <h3>El regalo más grande</h3>
+                <p>Mi tiempo, mi atención y mi sinceridad. Eso es lo que más quiero darte, Dana.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('El regalo más grande', 'Tiempo y cariño de verdad', '💝')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">🚶‍♀️</div>
+                <h3>Una caminata juntos</h3>
+                <p>Cogidos de la mano, disfrutando del silencio o de nuestras conversaciones, solo nosotros dos.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Una caminata juntos', 'Caminamos de la mano, en paz', '🚶‍♀️')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">🎵</div>
+                <h3>Concierto juntos</h3>
+                <p>La música ruidosa que amas, tú cantando y yo disfrutando verte feliz.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Concierto juntos', 'Música ruidosa y tu felicidad', '🎵')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">🎮</div>
+                <h3>Jugar y reír</h3>
+                <p>Pokémon, risas, locuras... los momentos simples contigo son los que más quiero vivir.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Jugar y reír', 'Pokémon, risas y diversión', '🎮')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">🏠</div>
+                <h3>Mi casita con vos</h3>
+                <p>Un día vivir tranquila en nuestra casita, despacio, disfrutando cada momento contigo.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Mi casita con vos', 'Tranquilidad y amor en casa', '🏠')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">💤</div>
+                <h3>Un día de paz y tranquilidad</h3>
+                <p>Durmiendo juntos, sin prisa. Solo tú y yo en calma, en nuestro refugio.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Un día de paz', 'Durmiendo juntos, en paz', '💤')">Guardar en el cofre</button>
+            </article>
+            <article class="regalo" data-reveal-card>
+                <div class="lazo">💕</div>
+                <h3>Siempre contigo</h3>
+                <p>Estar presente en tu vida, en tus sueños, en tus días. Eso es mi mayor promesa.</p>
+                <button type="button" class="btn-guardar" onclick="agregarAlCofre('Siempre contigo', 'Mi mayor promesa es quererte', '💕')">Guardar en el cofre</button>
+            </article>
+        </div>
+    </main>
+
+    <footer class="pie-dana">Tema: cajas de regalo</footer>
+    <script src="Assets/cofre.js"></script>
+    <script src="Assets/script.js"></script>
+</body>
+</html>
+
+
+
